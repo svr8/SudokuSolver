@@ -22,24 +22,17 @@ class Main
 
     for(int i=0;i<9;i++) {
       line = io.next();
-      System.out.println(">"+line);
       for(int j=0;j<9;j++) {
-
-
         c = line.charAt(j);
         if(c=='*') {
           freeSlot[i][j] = true;
           continue;
         }
-
         int index = getGridIndex(i,j);
-   
-
         int val = c-48;
         row[i].addVal(val);
         col[j].addVal(val);
         grid[index].addVal(val);
-
         solution[i][j] = val;
       }
     }
@@ -96,9 +89,12 @@ class Main
     for(int i=0;i<9;i++) {
       for(int j=0;j<9;j++) {
         System.out.print(solution[i][j]);
-        if(j==2 || j==5) System.out.print("| ");
+        if(j==2 || j==5) System.out.print(" | ");
       }
-      System.out.print("\n----------------\n");
+      if(i==2 || i==5)
+        System.out.print("\n----------------\n");
+      else
+        System.out.println();
     }
     System.out.println();
   }
